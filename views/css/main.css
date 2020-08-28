@@ -36,4 +36,62 @@ body {
   text-decoration: none;
 }
 
+.content {
+  width: 25%;
+}
+
+.content h1, h2, h3, h4, h5, h6 {
+  color: #b9c5d5;
+}
+
+.content .form__label {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.content .form__input {
+  width: 90%;
+  height: 1.3rem;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.5;
+  border: 1px solid #e3e9f0;
+  border-radius: 0.3rem;
+  color: #1a2e42;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+}
+
+.content .form__input--half-width {
+  width: 41%;
+}
+
+.content .dropdown {
+  height: 2rem;
+}
+
+.info_label {
+  font-size: 0.8rem;
+}
+
+.meeting-details .topic, .meeting-details .date-time {
+  margin-bottom: -0.33rem;
+}
+
+.meeting-details .start-share {
+  color: #b9c5d5;
+}
+
+.separator {
+  display: inline-block;
+  width: 1rem;
+}
+
+.line-separator {
+  color: #e3e9f0;
+}
+
 /*# sourceMappingURL=main.css.map */

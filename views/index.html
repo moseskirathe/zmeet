@@ -9,7 +9,47 @@
     <img class="brand-logo" src="assets/logo.png">
 </div>
 <div class="content">
-    <h3>Create new meeting</h3>
+    <div id="new-meeting">
+    <h3>New meeting</h3>
+    <form action="#" method="post">
+        <p class="form__label">Topic</p>
+        <input type="text" class="form__input" id="topic" name="topic" placeholder="Meeting topic"><br>
+        <p class="form__label">Date</p>
+        <input type="date" class="form__input form__input--half-width" id="date" name="date"
+       value="2018-07-18"> 
+       <input type="time" class="form__input form__input--half-width"  id="time" name="time" required> <br> <br>
+       <!-- TODO: Current date and time-->
+
+       <div class="advanced-settings">
+        <input type="checkbox" name="meetingID" value="meetingID" checked>
+        <label for="meetingID"> Generate automatic meeting ID</label><br>
+        <input type="checkbox" name="meetingPassword" value="meetingPassword">
+        <label for="meetingPassword"> Require password</label><br>
+        <input type="checkbox" name="videoHost" value="videoHost" checked>
+        <label for="videoHost"> Generate automatic meeting ID</label><br>
+        <input type="checkbox" name="waitingRoom" value="waitingRoom">
+        <label for="waitingRoom"> Waiting room</label><br>
+        <input type="checkbox" name="muteParticipantsOnEntry" value="muteParticipantsOnEntry" checked>
+        <label for="muteParticipantsOnEntry"> Mute participants on entry</label><br>
+        <input type="checkbox" name="onlyAuthenticatedUsers" value="onlyAuthenticatedUsers">
+        <label for="onlyAuthenticatedUsers"> Only authenticated users can join</label><br>
+        <input type="checkbox" name="automaticallyRecordMeetings" value="automaticallyRecordMeetings">
+        <label for="automaticallyRecordMeetings">Automatically record meetings</label><br>
+    </div>
+       <p class="info_label">Meeting settings set to default. <br><a href="#">Edit Advanced Settings</a></p>
+       <a href="#" class="brand-btn">Schedule</a>
+       <a href="#" class="brand-btn">Clear</a>
+    </form>
+</div><br><br>
+<div id="scheduled-meetings">
+    <h3>Upcoming meetings</h3>
+    <div class="meeting-details">
+    <p class="topic">Meeting topic</p>
+    <p class="date-time">Date, time</p>
+    <p class="start-share"><span>Start</span><span class="separator"></span><span>Share</span></p>
+    <hr class="line-separator">
+    </div>
+</div>
 </div>
 </div>
 </body>
