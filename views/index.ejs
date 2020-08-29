@@ -11,7 +11,7 @@
 <div class="content">
     <div id="new-meeting">
     <h3>New meeting</h3>
-    <form action="#" method="post">
+    <form action="/meetings/" method="post">
         <p class="form__label">Topic</p>
         <input type="text" class="form__input" id="topic" name="topic" placeholder="Meeting topic"><br>
         <p class="form__label">Date</p>
@@ -40,6 +40,17 @@
 </div><br><br>
 <div id="scheduled-meetings">
     <h3>Upcoming meetings</h3>
+
+    <% for(var meeting of meetings) { %>
+        <div class="meeting-details">
+            <p class="topic">Topic: <%= meeting.topic %></p>
+            <p class="date-time">Time: <%= meeting.start_time %></p>
+            <p class="start-share"><span class="start-meeting" onclick=startMeeting(<%= meeting.join_url %>)>Start</span><span class="separator"></span><span class="share-meeting" onclick=copyToClipboard()>Share</span></p>
+        <hr class="line-separator">
+    </div>
+        <% } %>
+
+    <!-- Test-->
     <div class="meeting-details">
     <p class="topic">Topic: Soma</p>
     <p class="date-time">Time: Aug 16, 2020 04:00 PM Vancouver</p>
