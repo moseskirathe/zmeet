@@ -40,6 +40,11 @@ body {
 .content {
   width: 30%;
 }
+@media screen and (max-width: 1200px) {
+  .content {
+    width: 100%;
+  }
+}
 
 .content h1, h2, h3, h4, h5, h6 {
   color: #b9c5d5;
@@ -113,6 +118,11 @@ input:focus, textarea:focus, select:focus {
 #meetingPasswordContainer {
   display: none;
   margin-left: 1.7rem;
+}
+
+.validation_label {
+  display: none;
+  color: red;
 }
 
 /*# sourceMappingURL=main.css.map */

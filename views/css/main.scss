@@ -6,6 +6,7 @@ $white: #fff;
 $gray: #b9c5d5;
 $adaptive-white: #e3e9f0; 
 $primary-black: #1a2e42;
+$large-breakpoint: 1200px;
 
 
 body{
@@ -17,7 +18,7 @@ body{
 #wrapper{
   width: 80%;
   margin-left: auto;
-  margin-right: auto;  
+  margin-right: auto;
 }
 
 .navbar .brand-logo{
@@ -49,6 +50,9 @@ body{
 
 .content{
     width:30%;
+    @media screen and (max-width: $large-breakpoint) {
+        width: 100%;
+    }
 }
 
 .content h1, h2, h3, h4, h5, h6{
@@ -122,3 +126,9 @@ input:focus, textarea:focus, select:focus{
     display:none;
     margin-left:1.7rem;
 }
+
+.validation_label{
+    display: none;
+    color:red;
+}
+
