@@ -1,8 +1,9 @@
+// VARIABLES
+
 $primary-color: #1a2e42;
 $primary-brand: #137DC5;
 $background-color: #fafcff;
 $white: #fff;
-// $gray: #bfcbda;
 $gray: #b9c5d5;
 $adaptive-white: #e3e9f0; 
 $primary-black: #1a2e42;
@@ -113,8 +114,6 @@ input:focus, textarea:focus, select:focus{
 .action-label{
     color:$gray;
 }
-
-
 
 .meeting-details .start-share .start-meeting:hover, 
 .meeting-details .start-share .share-meeting:hover, .action-label:hover{

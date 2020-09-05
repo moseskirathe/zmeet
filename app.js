@@ -10,9 +10,8 @@ const { isNullOrUndefined } = require('util');
 // Set view engine to ejs
 app.set("view engine", "ejs");
 
-// Tell Express where we keep our frontend files
-//app.set("views",__dirname + "/views");
 
+// Tell Express where we keep our frontend files
 app.use(express.static(__dirname + '/views'));
 
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
@@ -30,7 +29,6 @@ var accessToken = "";
 
 /* Sign in page */
 app.get('/', function (req, resp) {
-    console.log("checking access token");
     // Check access token
     if(accessToken == ""){
     resp.render("login");
@@ -63,13 +61,9 @@ app.get('/', function (req, resp) {
            }
            var meetings = meetingDetailsObj.meetings;
     
-          // let mtopics = [];
-           /* List meetings */
            for(meeting of meetings){
             scheduledMeetings.push(meeting);
            }
-    
-           console.log(scheduledMeetings.length);
     
     resp.render("index", {meetings: scheduledMeetings});
       });
@@ -80,8 +74,6 @@ app.get('/', function (req, resp) {
 
 /* Complete OAuth verification */
 app.get('/OAuth/', function (req, res) {
-    console.log("OAuth complete");
-
       /* Request access token */
       var userCode = req.query.code;
       var authorizationHeader = 'Basic ' + Buffer.from(clientID + ':' + appClientSecret).toString('base64');
@@ -100,14 +92,9 @@ app.get('/OAuth/', function (req, res) {
 
       request(options, function(error, response, body) {
         if (error) throw new Error(error);
-        console.log("Request successful");
-
         var accessTokenObj = JSON.parse(body);
-        console.log(accessTokenObj);
         var accessToken = accessTokenObj.access_token;
         /* Authentication Successful - user token received */
-        console.log(accessToken);
-        //var accessToken = encodeURIComponent(body);
         res.redirect('/authSuccess/?accessToken=' + accessToken);
        });
 });
@@ -116,37 +103,11 @@ app.get('/OAuth/', function (req, res) {
 /* Get all upcoming meetings */
 
 app.get('/authSuccess/', function (req, resp) {
-  //  fs.readFile('authComplete.html', function(err, data) {
-  //       if (err) throw err;
-  //       else res.end(data);
-  //     });
-    
     accessToken = req.query.accessToken;
     resp.redirect('/');
-    
-// req.end();
 });
 
-/* new meetings test */
-app.post('/testmeetings/', function (req, res) {
-    /*console.log("Topic: " + req.body.topic);
-    console.log("Date: " + req.body.date);
-    console.log("Time: " + req.body.time);
-    console.log("Meeting password required: " + req.body.meetingPassword);
-    console.log("Meeting password input: " + req.body.meetingPasswordInput);
-    console.log("Waiting Room: " + req.body.waitingRoom);
-    console.log("Mute participants on entry: " + req.body.muteParticipantsOnEntry);
-    console.log("onlyAuthenticatedUsers: " + req.body.onlyAuthenticatedUsers);
-    console.log("automaticallyRecordMeetings: "+req.body.automaticallyRecordMeeting);
-    if(!req.body.waitingRoom){
-      console.log("HELLO!");
-    }
-*/
-    
-   // res.redirect('/');
-});
 /* Create a new meeting */
-
 app.post('/meetings/', function (req, res) {
   let meetingTopic = req.body.topic;
   let startDate = req.body.date;
@@ -185,11 +146,8 @@ app.post('/meetings/', function (req, res) {
       
         res.on("end", function () {
           var body = Buffer.concat(chunks);
-          console.log(body.toString());
         });
       });
-
-      console.log(startDateTime);
 
       req.write(JSON.stringify({
         topic: meetingTopic,
@@ -204,8 +162,6 @@ app.post('/meetings/', function (req, res) {
           auto_recording: automaticallyRecordMeeting
         }
       }));
-      /* Response: meeting details object */
-      console.log("meeting has been created");
       /* Redirect to home, without the sign in if authentication is still valid */
       res.redirect("/");
       req.end();
@@ -215,8 +171,5 @@ app.post('/meetings/', function (req, res) {
    var host = server.address().address
    var port = server.address().port
    
-   console.log("Example app listening at http://%s:%s", host, port)
+   console.log("Zmeet App listening at http://%s:%s", host, port)
 });
-
-
-/* https://steemit.com/utopian-io/@prodicode/how-to-use-ejs-displaying-data-from-nodejs-in-html */
