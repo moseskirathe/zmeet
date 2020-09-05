@@ -22,9 +22,8 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 
 
-var root = "https://tricky-skunk-87.serverless.social";
+var root = config.ROOT;
 var clientID = config.CLIENT_ID;
-console.log("hello!!!" + clientID);
 var appClientSecret = config.APP_CLIENT_SECRET;
 var userID = config.USER_ID;
 var accessToken = "";
